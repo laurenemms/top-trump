@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Card} from "./Card"
+import {StatefulCard} from "./Card"
+
+const exampleCardData: CardProps = {
+    name: "Donald Trump",
+    imageUrl: "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg?mod=1533691850",
+    stats: [
+        {
+            name: 'popularity',
+            value: 10,
+        }
+    ]
+};
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <StatefulCard/>
       </div>
     );
   }
 }
 
 export default App;
+
