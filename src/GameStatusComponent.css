@@ -1,0 +1,19 @@
+.gameStatus {
+    margin: 50px;
+    width: 300px;
+    text-align: center;
+    font-weight: 900;
+    color: white;
+}
+
+.score {
+    background-color: #3B5DA0;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.playerTurn {
+    background-color: #4285F4;
+    border-radius: 10px;
+    padding: 10px;
+}

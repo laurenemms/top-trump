@@ -121,7 +121,7 @@ export class GameComponent extends Component<GameProps, GameState> {
         } else if (this.state.card) {
             console.log(this.state);
             component =
-                <div>
+                <div className="gameComponent">
                     <GameStatusComponent
                         score={getScores(this.state.gameData.players)}
                         playerTurn={getPlayersTurn(this.state.isPlayersTurn)}

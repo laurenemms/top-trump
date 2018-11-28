@@ -1,0 +1,13 @@
+.header {
+    background-color: #062963;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: end;
+}
+
+.logo {
+    width: 40px;
+    margin: 5px 200px;
+}

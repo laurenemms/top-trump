@@ -9,7 +9,7 @@ type GameStatusProps = {
 export class GameStatusComponent extends Component<GameStatusProps> {
     render() {
         return (
-            <div className>
+            <div className="gameStatus">
                 <div className="score">{this.props.score}</div>
                 <div className="playerTurn">{this.props.playerTurn}</div>
             </div>
