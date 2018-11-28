@@ -10,10 +10,12 @@
     background-color: #3B5DA0;
     border-radius: 10px;
     padding: 10px;
+    margin: 5px;
 }
 
 .playerTurn {
     background-color: #4285F4;
     border-radius: 10px;
     padding: 10px;
+    margin: 5px;
 }
