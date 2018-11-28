@@ -2,6 +2,7 @@ import {Component} from "react";
 import React from "react";
 import {CardComponent} from "./CardComponent";
 import type {CardProps} from "./CardComponent";
+import {GameStatusComponent} from "./GameStatusComponent";
 
 type GameProps = {
     playerName: string,
@@ -105,12 +106,10 @@ export class GameComponent extends Component<GameProps, GameState> {
             console.log(this.state);
             component =
                 <div>
-                    <div>
-                        <span>{getScores(this.state.gameData.players)}</span>
-                    </div>
-                    <div>
-                        <span>{getPlayersTurn(this.state.isPlayersTurn)}</span>
-                    </div>
+                    <GameStatusComponent
+                        score={getScores(this.state.gameData.players)}
+                        playerTurn={getPlayersTurn(this.state.isPlayersTurn)}
+                    />
                     <CardComponent
                         name={this.state.card.name}
                         imageUrl={this.state.card.imageUrl}
