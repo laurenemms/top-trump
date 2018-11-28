@@ -5,7 +5,7 @@ type NameProps = {
     name: string
 }
 
-export class Name extends Component<NameProps> {
+export class NameComponent extends Component<NameProps> {
     render() {
         return (
             <h1 className="card-name">{this.props.name}</h1>

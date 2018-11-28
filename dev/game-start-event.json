@@ -1,0 +1,25 @@
+{
+  "eventType": "GameStart",
+  "data": {
+    "nextCards": {
+      "Player1": {
+        "name": "Barack Obama",
+        "imageUrl": "https://pbs.twimg.com/profile_images/822547732376207360/5g0FC8XX_400x400.jpg",
+        "stats": {
+          "popularity":          3,
+          "global influence":    9,
+          "danger to the world": 10,
+          "strategy":            0
+        }
+      }
+    },
+    "nextPlayer": "Player1",
+    "gameData": {
+      "players": {
+        "Player1": 0,
+        "Player2": 0
+      },
+      "isFinished": false
+    }
+  }
+}
