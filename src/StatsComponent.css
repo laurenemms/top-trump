@@ -1,0 +1,19 @@
+.card-stats {
+    list-style: none;
+    padding: 0;
+    color: #FFECA3;
+    margin: 5px 10px 10px 10px;
+}
+
+.card-stat {
+    background-color: #F2DA02;
+    color: #062963;
+    border: 1px solid #062963;
+    font-weight: 900;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.card-stat:hover {
+    background-color: #d69c37;
+}
