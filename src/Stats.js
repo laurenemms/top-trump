@@ -9,7 +9,7 @@ type StatsProps = {
 export class Stats extends Component<Object> {
     render() {
         return (
-            <ul>{
+            <ul className="card-stats">{
                 this.props.stats.map(
                     stat => <Stat name={stat.name} value={stat.value}/>
                 )
@@ -27,7 +27,7 @@ class Stat extends Component<StatProps> {
     render() {
         const name = `${this.props.name}: ${this.props.value}`
         return (
-            <li>{name}</li>
+            <li className="card-stat">{name}</li>
         );
     }
 }

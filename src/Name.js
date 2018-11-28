@@ -8,7 +8,7 @@ type NameProps = {
 export class Name extends Component<NameProps> {
     render() {
         return (
-            <h1>{this.props.name}</h1>
+            <h1 className="card-name">{this.props.name}</h1>
         );
     }
 }
