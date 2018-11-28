@@ -2,9 +2,9 @@ import {Component} from "react";
 import React from "react";
 import {CardComponent} from "./CardComponent";
 import type {CardProps} from "./CardComponent";
+import {JoinGameComponent} from "./JoinGameComponent";
 
 type GameProps = {
-    playerName: string,
     webSocketUrl: string,
 }
 
@@ -14,6 +14,8 @@ type GameState = {
     isPlayersTurn: boolean,
     socket: WebSocket,
     gameData: Object,
+    hasJoined: boolean,
+    playerName: string,
 }
 
 export class GameComponent extends Component<GameProps, GameState> {
@@ -24,6 +26,7 @@ export class GameComponent extends Component<GameProps, GameState> {
             isFinished: false,
             card: null,
             isPlayersTurn: false,
+            hasJoined: false,
         };
     }
 
@@ -47,13 +50,15 @@ export class GameComponent extends Component<GameProps, GameState> {
         )
     }
 
-    componentDidMount() {
-        const socket = new WebSocket(`${this.props.webSocketUrl}?player=${this.props.playerName}`);
-        const self = this;
+    onJoinGameClicked() {
+        const url = new URL(window.location.href);
+        let player = url.searchParams.get("player");
+        if (!player) {
+            player = prompt("please enter player name", "player name");
+        }
 
-        self.setState({
-            socket: socket,
-        });
+        const socket = new WebSocket(`${this.props.webSocketUrl}?player=${player}`);
+        const self = this;
 
         socket.addEventListener('message', function (json) {
             let event;
@@ -73,8 +78,8 @@ export class GameComponent extends Component<GameProps, GameState> {
 
             if (event.eventType === "GameStart") {
                 self.setState({
-                    card: event.data.nextCards[self.props.playerName],
-                    isPlayersTurn: event.data.nextPlayer === self.props.playerName,
+                    card: event.data.nextCards[self.state.playerName],
+                    isPlayersTurn: event.data.nextPlayer === self.state.playerName,
                     gameData: event.data.gameData,
                 });
                 return;
@@ -83,24 +88,35 @@ export class GameComponent extends Component<GameProps, GameState> {
             if (event.eventType === "Result" && event.data.gameData.isFinished) {
                 self.setState({
                     isFinished: true,
+                    gameData: event.data.gameData,
                 });
                 return;
             }
 
             if (event.eventType === "Result" && !event.isFinished) {
                 self.setState({
-                    card: event.data.nextCards[self.props.playerName],
-                    isPlayersTurn: event.data.nextPlayer === self.props.playerName,
+                    card: event.data.nextCards[self.state.playerName],
+                    isPlayersTurn: event.data.nextPlayer === self.state.playerName,
                     gameData: event.data.gameData,
                 });
             }
+        });
+
+        this.setState({
+            playerName: player,
+            hasJoined: true,
+            socket: socket,
         });
     }
 
     render() {
         let component;
         if (this.state.isFinished) {
-            component = <div>Game finished</div>
+            component =
+                <div>
+                    <div><span>Game finished</span></div>
+                    <span>{getScores(this.state.gameData.players)}</span>
+                </div>
         } else if (this.state.card) {
             console.log(this.state);
             component =
@@ -120,7 +136,11 @@ export class GameComponent extends Component<GameProps, GameState> {
                 </div>
 
         } else {
-            component = <div> Awaiting game start... </div>
+            component =
+                <JoinGameComponent
+                    hasJoined={this.state.hasJoined}
+                    onJoinGameClicked={this.onJoinGameClicked.bind(this)}
+                />
         }
         return (component);
     }
