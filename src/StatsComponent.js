@@ -13,7 +13,7 @@ type StatsProps = {
 export class StatsComponent extends Component<StatsProps> {
     render() {
         return (
-            <ul>{
+            <ul className="card-stats">{
                 Object.entries(this.props.stats).map(
                     ([name, value], index) =>
                         <StatComponent
@@ -37,7 +37,10 @@ type StatProps = {
 class StatComponent extends Component<StatProps> {
     render() {
         return (
-            <li onClick={() => this.props.onStatChosen(this.props.name)}>
+            <li
+                onClick={() => this.props.onStatChosen(this.props.name)}
+                className="card-stat"
+            >
                 {`${this.props.name}: ${this.props.value}`}
             </li>
         );

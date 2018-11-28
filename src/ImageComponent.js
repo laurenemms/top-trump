@@ -12,6 +12,7 @@ export class ImageComponent extends Component<ImageProps> {
         return (
             <img
                 className="card-image"
+                style={{width: "95%"}}
                 src={this.props.imageUrl}
                 alt={this.props.name}
             />

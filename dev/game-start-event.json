@@ -3,13 +3,23 @@
   "data": {
     "nextCards": {
       "Player1": {
-        "name": "Donald Trump",
-        "imageUrl": "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg?mod=1533691850",
+        "name": "Barack Obama",
+        "imageUrl": "https://pbs.twimg.com/profile_images/822547732376207360/5g0FC8XX_400x400.jpg",
         "stats": {
-          "popularity": 0
+          "popularity":          3,
+          "global influence":    9,
+          "danger to the world": 10,
+          "strategy":            0
         }
       }
     },
-    "nextPlayer": "Player1"
+    "nextPlayer": "Player1",
+    "gameData": {
+      "players": {
+        "Player1": 0,
+        "Player2": 0
+      },
+      "isFinished": false
+    }
   }
 }
