@@ -5,13 +5,11 @@
       "Player1": {
         "name": "Donald Trump",
         "imageUrl": "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg?mod=1533691850",
-        "stats": [
-          {
-            "name": "popularity",
-            "value": 10
-          }
-        ]
+        "stats": {
+          "popularity": 0
+        }
       }
-    }
+    },
+    "nextPlayer": "Player1"
   }
 }

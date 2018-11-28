@@ -1,0 +1,47 @@
+{
+  "eventType": "GameStart",
+  "data": {
+    "cards": {
+      "Player1": {
+        "name": "Donald Trump",
+        "imageUrl": "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg?mod=1533691850",
+        "stats": {
+          "popularity": 0
+        }
+      },
+      "Player2": {
+        "name": "Barack Obama",
+        "imageUrl": "https://pbs.twimg.com/profile_images/822547732376207360/5g0FC8XX_400x400.jpg",
+        "stats": {
+          "popularity": 100
+        }
+      }
+    },
+    "statName": "popularity",
+    "winner": "Player1",
+    "nextPlayer": "Player1",
+    "nextCards": {
+      "Player1": {
+        "name": "Barack Obama",
+        "imageUrl": "https://pbs.twimg.com/profile_images/822547732376207360/5g0FC8XX_400x400.jpg",
+        "stats": {
+          "popularity": 100
+        }
+      },
+      "Player2": {
+        "name": "Donald Trump",
+        "imageUrl": "https://cdn.theatlantic.com/assets/media/img/mt/2016/09/RTX1GZCO/lead_720_405.jpg?mod=1533691850",
+        "stats": {
+          "popularity": 0
+        }
+      }
+    },
+    "gameData": {
+      "players": {
+        "Player1": 5,
+        "Player2": 10
+      },
+      "isFinished": false
+    }
+  }
+}
